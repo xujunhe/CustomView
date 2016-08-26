@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <simple.xjh.com.customview.widget.CustomView02
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mText="你好"
+        app:textColor="@color/colorAccent"
+        app:image="@mipmap/ic_launcher"
+        app:imageScaleType="center"
+        />
+</LinearLayout>

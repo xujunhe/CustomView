@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--自定义控件01 自定义属性-->
+    <attr name="mText" format="string"></attr>
+    <attr name="textColor" format="color"></attr>
+
+    <declare-styleable name="CustomView01">
+        <attr name="mText"></attr>
+        <attr name="textColor"></attr>
+    </declare-styleable>
+    <!--自定义控件01 自定义属性-->
+
+    <!--自定义控件02-->
+    <attr name="image" format="reference"></attr>
+    <attr name="imageScaleType">
+        <enum name="fillXY" value="0" />
+        <enum name="center" value="1" />
+    </attr>
+
+    <declare-styleable name="CustomView02">
+        <attr name="mText"></attr>
+        <attr name="textColor"></attr>
+        <attr name="image"></attr>
+        <attr name="imageScaleType"></attr>
+    </declare-styleable>
+</resources>
