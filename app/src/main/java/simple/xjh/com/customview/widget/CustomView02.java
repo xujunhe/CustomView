@@ -8,9 +8,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.TextView;
 
 import simple.xjh.com.customview.R;
 
@@ -18,6 +19,8 @@ import simple.xjh.com.customview.R;
  * Created by Administrator on 2016/8/26 0026.
  */
 public class CustomView02 extends View{
+    private static final int IMAGE_SCALE_FITXY = 0;
+    private static final int IMAGE_SCALE_CENTER = 1;
 
     private String mText;
     private int textColor;
@@ -28,6 +31,11 @@ public class CustomView02 extends View{
     private Paint mPaint;
     private Rect mBound;
 
+    int width=0,height=0 ;
+    /**
+     * 控制整体布局
+     */
+    private Rect rect;
     public CustomView02(Context context) {
         this(context,null);
     }
@@ -71,6 +79,7 @@ public class CustomView02 extends View{
         mPaint = new Paint();
         mPaint.setTextSize(80);
         mBound = new Rect();
+        rect = new Rect();
         mPaint.getTextBounds(mText,0,mText.length(),mBound);
     }
 
@@ -82,7 +91,7 @@ public class CustomView02 extends View{
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 //        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int width=0,height=0 ;
+
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -129,16 +138,67 @@ public class CustomView02 extends View{
          */
         mPaint.setStrokeWidth(4);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setColor(Color.CYAN);
+        mPaint.setColor(Color.BLUE);
+        //画出边框
         canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), mPaint);
 
-        canvas.drawBitmap(mImage, getWidth() / 2 - mBound.width() / 2, getHeight() / 2 + mBound.height() / 2,mPaint);
+        //设置绘画区域
+        rect.left = getPaddingLeft();
+        rect.right = width - getPaddingRight();
+        rect.top = getPaddingTop();
+        rect.bottom = height - getPaddingBottom();
 
-
+        //设置字体颜色
         mPaint.setColor(textColor);
-        //设置居中显示
-        canvas.drawText(mText, getWidth() / 2 - mBound.width() / 2, getHeight() / 2 + mBound.height() / 2, mPaint);
 
+        mPaint.setStyle(Paint.Style.FILL);
+
+        /**
+         * 当前设置的宽度小于字体需要的宽度，将字体改为xxx...
+         */
+        if (mBound.width() > width)
+        {
+
+            TextPaint paint = new TextPaint(mPaint);
+            String msg = TextUtils.ellipsize(mText, paint, (float) width - getPaddingLeft() - getPaddingRight(),
+                    TextUtils.TruncateAt.END).toString();
+
+            //在画板的
+            canvas.drawText(msg, getPaddingLeft(), height - getPaddingBottom(), mPaint);
+
+        } else
+        {
+            //正常情况，将字体居中
+            canvas.drawText(mText, width / 2 - mBound.width() * 1.0f / 2, mBound.height(), mPaint);
+        }
+
+
+        //去掉使用掉的块
+        rect.top += mBound.height();
+
+        if (imageScaleType == IMAGE_SCALE_FITXY)
+        {
+            canvas.drawBitmap(mImage, null, rect, mPaint);
+        } else
+        {
+            //计算居中的矩形范围
+            rect.left = width / 2 - mImage.getWidth() / 2;
+            rect.right = width / 2 + mImage.getWidth() / 2;
+
+            //view的高度减去 字体的高度
+           int newHeight =  height-mBound.height();
+            //去除字体高度之后 图片居中之后的 top padding 高度
+            newHeight = newHeight/2 - mImage.getHeight()/2;
+            //字体高度+图片居中之后的top padding 高度 就是 top 的值
+            newHeight+=mBound.height();
+
+            rect.top = newHeight;
+
+            //top的值加上图片的高度就是底部的值
+            rect.bottom = newHeight+mImage.getHeight();
+
+            canvas.drawBitmap(mImage, null, rect, mPaint);
+        }
 
 
 

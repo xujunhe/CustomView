@@ -24,4 +24,7 @@
         <attr name="image"></attr>
         <attr name="imageScaleType"></attr>
     </declare-styleable>
+
+
+
 </resources>

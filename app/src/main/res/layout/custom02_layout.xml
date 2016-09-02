@@ -7,12 +7,15 @@
     android:gravity="center">
 
     <simple.xjh.com.customview.widget.CustomView02
-        android:padding="10dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:mText="你好"
         app:textColor="@color/colorAccent"
         app:image="@mipmap/ic_launcher"
-        app:imageScaleType="center"
+        app:imageScaleType="fillXY"
         />
+
+
+
 </LinearLayout>
