@@ -15,7 +15,12 @@ import android.view.View;
 
 import simple.xjh.com.customview.R;
 
+
 /**
+ * 自定义view 02
+ * http://blog.csdn.net/lmj623565791/article/details/24300125
+ * 博客中为 图片在上文字在下，
+ * 这里修改为图片在下文字在上。
  * Created by Administrator on 2016/8/26 0026.
  */
 public class CustomView02 extends View{
