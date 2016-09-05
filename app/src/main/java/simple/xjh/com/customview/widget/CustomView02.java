@@ -97,11 +97,11 @@ public class CustomView02 extends View{
 //        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
 
-
+        //获取测量模式
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-
+        //获取宽高
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
@@ -110,7 +110,9 @@ public class CustomView02 extends View{
             width = widthSize;
         }else
         {
+            //图片的最大宽度
             int imgWidth =  mImage.getWidth()+getPaddingLeft()+getPaddingRight();
+            //文字的最大宽度
             int textWidth = mBound.width()+getPaddingLeft()+getPaddingRight();
             if (widthMode == MeasureSpec.AT_MOST)// wrap_content
             {
@@ -127,7 +129,7 @@ public class CustomView02 extends View{
             int desire = getPaddingTop() + getPaddingBottom() + mImage.getHeight() + mBound.height();
             if (widthMode == MeasureSpec.AT_MOST)
             {
-                height = Math.min(desire, widthSize);
+                height = Math.min(desire, heightSize);
             }
         }
 

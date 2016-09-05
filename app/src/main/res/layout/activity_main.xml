@@ -16,4 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="自定义图片文本显示"/>
+    <Button
+        android:id="@+id/btn_circl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="圆环交替"/>
 </LinearLayout>

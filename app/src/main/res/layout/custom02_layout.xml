@@ -13,7 +13,7 @@
         app:mText="你好"
         app:textColor="@color/colorAccent"
         app:image="@mipmap/ic_launcher"
-        app:imageScaleType="fillXY"
+        app:imageScaleType="center"
         />
 
 

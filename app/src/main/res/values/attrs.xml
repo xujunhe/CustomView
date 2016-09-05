@@ -25,6 +25,13 @@
         <attr name="imageScaleType"></attr>
     </declare-styleable>
 
+    <!--自定义控件03-->
+    <attr name="circleWidth" format="dimension"></attr>
+    <attr name="speed" format="integer"></attr>
 
+    <declare-styleable name="CustomView03">
+        <attr name="circleWidth"></attr>
+        <attr name="speed"></attr>
+    </declare-styleable>
 
 </resources>
