@@ -16,17 +16,17 @@ public class MainActivity extends AppCompatActivity {
     private Button btnImageText;
     private Button btnCircl;
     private Button btnSound;
+    private Button btnTextView;
 
     private void assignViews() {
         btnText = (Button) findViewById(R.id.btn_text);
         btnImageText = (Button) findViewById(R.id.btn_ImageText);
         btnCircl = (Button) findViewById(R.id.btn_circl);
         btnSound = (Button) findViewById(R.id.btn_sound);
+        btnTextView = (Button) findViewById(R.id.btn_textView);
     }
 
 
-
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,Custom04Activity.class));
+            }
+        });
+        btnTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,Custom05Activity.class));
             }
         });
     }

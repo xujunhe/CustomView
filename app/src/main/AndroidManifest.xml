@@ -19,6 +19,7 @@
         <activity android:name=".Custom02Activity"></activity>
         <activity android:name=".Custom03Activity"></activity>
         <activity android:name=".Custom04Activity"></activity>
+        <activity android:name=".Custom05Activity"></activity>
     </application>
 
 </manifest>
