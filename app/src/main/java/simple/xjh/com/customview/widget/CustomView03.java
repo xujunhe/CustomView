@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -69,7 +70,18 @@ public class CustomView03 extends View{
         }
         typedArray.recycle();
         mPaint = new Paint();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                start();
+            }
+        },1000);
 
+    }
+
+
+
+    private void start() {
         new Thread()
         {
             @Override
@@ -110,12 +122,9 @@ public class CustomView03 extends View{
         mPaint.setAntiAlias(true); // 消除锯齿
         mPaint.setStyle(Paint.Style.STROKE); // 设置空心
         RectF oval = new RectF(centre - radius, centre - radius, centre + radius, centre + radius); // 用于定义的圆弧的形状和大小的界限
-
         mPaint.setColor(colors[oldColorIndex]); // 设置圆环的颜色
         canvas.drawCircle(centre, centre, radius, mPaint); // 画出圆环
         mPaint.setColor(colors[colorIndex]); // 设置圆环的颜色
         canvas.drawArc(oval, -90, mProgress, false, mPaint); // 根据进度画圆弧
-
-
     }
 }
