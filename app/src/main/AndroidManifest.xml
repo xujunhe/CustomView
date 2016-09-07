@@ -18,6 +18,7 @@
         <activity android:name=".Custom01Activity"></activity>
         <activity android:name=".Custom02Activity"></activity>
         <activity android:name=".Custom03Activity"></activity>
+        <activity android:name=".Custom04Activity"></activity>
     </application>
 
 </manifest>

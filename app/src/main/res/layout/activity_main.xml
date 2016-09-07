@@ -21,4 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="圆环交替"/>
+    <Button
+        android:id="@+id/btn_sound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="音量控制"/>
 </LinearLayout>
