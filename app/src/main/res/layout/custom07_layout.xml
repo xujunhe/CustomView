@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <simple.xjh.com.customview.widget.CustomView07
+        android:id="@+id/topBar"
+        app:mTitle="标题"
+        app:mTitleColor="@color/colorAccent"
+        app:mRightText="确定"
+        app:mLeftText="返回"
+        app:mLeftTextColor="@color/colorAccent"
+        app:mLeftBackground="@android:color/darker_gray"
+        app:mRightBackgroud="@android:color/darker_gray"
+        app:mRightTextColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+    </simple.xjh.com.customview.widget.CustomView07>
+
+</LinearLayout>

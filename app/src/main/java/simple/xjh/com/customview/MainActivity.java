@@ -1,29 +1,33 @@
 package simple.xjh.com.customview;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import java.util.Arrays;
+import java.util.List;
 
-import simple.xjh.com.customview.widget.CustomView01;
 
 public class MainActivity extends AppCompatActivity {
 
+    private List<String> datas = Arrays.asList("自定义文本显示随机数","自定义图片文字显示",
+            "圆环交替","音量控制","对TextView进行扩展","闪动的TextView","简易TopBar");
+    private List<Class<? extends Activity>> activitys =  Arrays.asList
+              (Custom01Activity.class,Custom02Activity.class,
+                      Custom03Activity.class,Custom04Activity.class,
+                      Custom05Activity.class,Custom06Activity.class,
+                      Custom07Actvity.class);
+    private ListView list;
 
+    private ArrayAdapter adapter;
 
-    private Button btnText;
-    private Button btnImageText;
-    private Button btnCircl;
-    private Button btnSound;
-    private Button btnTextView;
 
     private void assignViews() {
-        btnText = (Button) findViewById(R.id.btn_text);
-        btnImageText = (Button) findViewById(R.id.btn_ImageText);
-        btnCircl = (Button) findViewById(R.id.btn_circl);
-        btnSound = (Button) findViewById(R.id.btn_sound);
-        btnTextView = (Button) findViewById(R.id.btn_textView);
+        list = (ListView) findViewById(R.id.list);
     }
 
 
@@ -37,36 +41,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        btnText.setOnClickListener(new View.OnClickListener() {
+        adapter = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,datas);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Custom01Activity.class));
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(activitys.get(position));
             }
         });
-        btnImageText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Custom02Activity.class));
-            }
-        });
-        btnCircl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Custom03Activity.class));
-            }
-        });
+    }
 
-        btnSound.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Custom04Activity.class));
-            }
-        });
-        btnTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Custom05Activity.class));
-            }
-        });
+
+    private void startActivity(Class<? extends Activity> c)
+    {
+        startActivity(new Intent(MainActivity.this,c));
     }
 }

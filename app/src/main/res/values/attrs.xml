@@ -50,5 +50,28 @@
         <attr name="bg" />
     </declare-styleable>
 
+    <!--自定义控件07-->
+    <attr name="mTitle" format="string"></attr>
+    <attr name="mLeftText" format="string"></attr>
+    <attr name="mRightText" format="string"></attr>
+    <attr name="mTitleColor" format="color"></attr>
+    <attr name="mLeftTextColor" format="color"></attr>
+    <attr name="mRightTextColor" format="color"></attr>
+    <attr name="mLeftBackground" format="reference|color"></attr>
+    <attr name="mRightBackgroud" format="reference|color"></attr>
+    
+    <declare-styleable name="CustomView07">
+        <attr name="mTitle"></attr>
+        <attr name="mLeftText"></attr>
+        <attr name="mRightText"></attr>
+        <attr name="mTitleColor"></attr>
+        <attr name="mLeftTextColor"></attr>
+        <attr name="mRightTextColor"></attr>
+        <attr name="mLeftBackground"></attr>
+        <attr name="mRightBackgroud"></attr>
+    </declare-styleable>
+    
+
+
 
 </resources>
