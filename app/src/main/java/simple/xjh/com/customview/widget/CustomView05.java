@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.TextView;
 
 /**
@@ -14,6 +15,7 @@ import android.widget.TextView;
  */
 public class CustomView05 extends TextView{
 
+    private static final String TAG = CustomView05.class.getName() ;
     private Paint mPaint;
 
     public CustomView05(Context context) {
@@ -31,9 +33,7 @@ public class CustomView05 extends TextView{
 
     private void init() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(Color.BLUE);
         mPaint.setStyle(Paint.Style.STROKE);
-
     }
 
     @Override
@@ -41,14 +41,16 @@ public class CustomView05 extends TextView{
 
         int measuredHeight = getMeasuredHeight();
         int measuredWidth = getMeasuredWidth();
+        //在这里设置颜色，onDraw 会调用两次！
+        mPaint.setColor(Color.BLUE);
         canvas.drawRect(0,0,measuredWidth,measuredHeight,mPaint);
         mPaint.setColor(Color.RED);
-
-        canvas.drawRect(10,10,measuredWidth-10,measuredHeight-10,mPaint);
+        canvas.drawRect(10,10,(measuredWidth-10),(measuredHeight-10),mPaint);
         canvas.save();
         canvas.translate(10,10);
         super.onDraw(canvas);
         canvas.restore();
+        Log.d(TAG,"onDraw");
 
     }
 }
