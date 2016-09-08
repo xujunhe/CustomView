@@ -70,8 +70,14 @@
         <attr name="mLeftBackground"></attr>
         <attr name="mRightBackgroud"></attr>
     </declare-styleable>
-    
 
+    <!--自定义控件08-->
+    <attr name="circleColor" format="color"></attr>
+
+    <declare-styleable name="CustomView08">
+        <attr name="mText"></attr>
+        <attr name="circleColor"></attr>
+    </declare-styleable>
 
 
 </resources>

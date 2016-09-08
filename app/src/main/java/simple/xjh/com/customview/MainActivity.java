@@ -15,12 +15,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<String> datas = Arrays.asList("自定义文本显示随机数","自定义图片文字显示",
-            "圆环交替","音量控制","对TextView进行扩展","闪动的TextView","简易TopBar");
+            "圆环交替","音量控制","对TextView进行扩展","闪动的TextView","简易TopBar","圆环");
     private List<Class<? extends Activity>> activitys =  Arrays.asList
               (Custom01Activity.class,Custom02Activity.class,
                       Custom03Activity.class,Custom04Activity.class,
                       Custom05Activity.class,Custom06Activity.class,
-                      Custom07Actvity.class);
+                      Custom07Actvity.class,Custom08Activity.class);
     private ListView list;
 
     private ArrayAdapter adapter;

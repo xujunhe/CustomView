@@ -22,6 +22,7 @@
         <activity android:name=".Custom05Activity"></activity>
         <activity android:name=".Custom06Activity"></activity>
         <activity android:name=".Custom07Actvity"></activity>
+        <activity android:name=".Custom08Activity"></activity>
     </application>
 
 </manifest>
